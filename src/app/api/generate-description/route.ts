@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
     }
 
     // Construct the prompt as a user message for the chat model
-    const prompt = `Write a short 3 line, catchy description for a ${color} ${brand} ${product} with features: ${features}.`
+    const prompt = `Write a short 3 line, catchy description for a ${color} ${brand} ${product} with features: ${features}. Give Only description, no other text (very important). If you see dots in the features, ignore it. Give the description based on what info you have.`
 
     // The router uses an OpenAI-compatible endpoint for chat completions
     const hfResponse = await fetch(`https://router.huggingface.co/v1/chat/completions`, {
